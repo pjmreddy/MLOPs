@@ -49,7 +49,7 @@ class DivideStrategy(DataStrategy):
     def handle_data(self, data:pd.DataFrame) -> Union[pd.DataFrame, pd.Series]:
         try:
             X = data.drop(["review_score"], axis=1)
-            y = data("review_score")
+            y = data["review_score"]
 
             X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=42)
             return X_train, X_test, y_train, y_test
@@ -72,7 +72,3 @@ class DataCleaning:
             logging.error(f"Error in data handling: {e}")
             raise e
         
-'''if __name__ == "__main__":
-    data=pd.read_csv("Data/olist_customers_dataset.csv")
-    data_cleaning=DataCleaning(data, DataPreprocessStrategy())
-    data_cleaning.handle_data() '''

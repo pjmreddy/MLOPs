@@ -12,7 +12,7 @@ class Evaluation(ABC):
 
 class MSE(Evaluation):
 
-    def cal(self, y_true: np.ndarray, y_pred: np.ndarray):
+    def cal_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
         try:
             logging.info(f"Calculating Mean Square Error")
             mse= mean_squared_error(y_true,y_pred)
@@ -24,7 +24,7 @@ class MSE(Evaluation):
     
 class R2(Evaluation):
 
-    def cal(self, y_true: np.ndarray, y_pred: np.ndarray):
+    def cal_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
         try:
             logging.info(f"Calculating R2 score")
             r2= r2_score(y_true,y_pred)
@@ -36,7 +36,7 @@ class R2(Evaluation):
         
 class RMSE(Evaluation):
 
-    def cal(self, y_true: np.ndarray, y_pred: np.ndarray):
+    def cal_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
         try:
             logging.info(f"Calculating Root Mean Square Error")
             rmse= root_mean_squared_error(y_true,y_pred)
