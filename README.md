@@ -1,2 +1,0 @@
-# MLOPs
-MLOPs projects
